@@ -1,0 +1,163 @@
+
+/* Section About */ 
+
+#about .lead {color:#888; font-size:18px; line-height:30px; overflow:hidden;}
+#about h1 {color:#025D9F; font-size:25px; margin-bottom:30px;}
+
+/*  Section Contact Us */
+
+
+.contact-us
+{
+    background:url(../images/contact-us.jpg) center center no-repeat fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    width:100%;
+    padding:0;
+    min-height:400px;
+    
+}
+.contact-us .fields {background:rgba(0,0,0,0.6); color:#fff;min-height:400px;padding-top:40px;padding-bottom:40px}
+.contact-us p {padding-bottom:40px}
+.contact-us textarea {height: 108px}
+
+
+/* Section Testimonials  */
+
+.testimonials .lead{ line-height:2em;margin-bottom:10px }
+.testimonials span{ font-size:18px;font-weight:bold;color:#94c71a }
+.testimonials .carousel-inner{min-height:160px}
+.testimonials .carousel-indicators{position:static;width:100%;margin-left:auto;padding-top:20px}
+.testimonials .carousel-indicators li 
+{
+    width:80px;
+    height:80px;
+    text-indent:0;
+    opacity:0.4;
+    border:2px solid #fff;
+    border-radius:50%;
+    overflow:hidden;
+    margin:5px;
+    -web-kit-transition:all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+    -o-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+.testimonials .carousel-indicators li.active {width:80px;height:80px;opacity:1;background:none;border:3px solid #025D9F}
+.testimonials .carousel-indicators li img{max-width:100%}
+
+
+/*  Section Our Clients */
+
+.our-clients{background:#EEE;padding-top:20px;padding-bottom:20px;}
+.our-clients img 
+{
+    visibility:visible;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.our-clients img:hover {opacity:1; filter:alpha(opacity=100)}
+
+
+
+/* Section Our Team  */
+
+.our-team {
+    background:url(../images/team.jpg) center center no-repeat fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    width:100%;
+    padding:0;
+    min-height:550px;
+}
+.our-team .team  {background:rgba(0,0,0,0.6);  color:#fff; min-height:550px; padding-top:40px; padding-bottom:40px}
+.our-team .person {margin-bottom:40px}
+
+ .our-team .team p 
+{
+    color:#fcecec;
+    font-size:14px;
+}
+
+.our-team .person h2
+ {
+     margin: 20px 0 20px 0;
+     color:#fff;
+     font-size:23px;
+ }
+
+.our-team .person i
+ {
+    color:#fcecec;
+ }
+
+.our-team .person:hover i
+ {
+    color:#95c947;
+ }
+
+
+/* Section Subscribe */ 
+  
+.subscribe{background:#EEE}
+.subscribe h1 {color: #888;letter-spacing: 2px;margin-bottom: 20px}
+.subscribe p {margin-bottom:30px;}
+.subscribe .form-control{ display:inline;   border-radius:0;margin-right:-5px;width:300px;}
+.subscribe .btn {border-radius:0}
+
+
+/*  Section Statistics */
+
+.statistics
+{
+    background:url(../images/stats.jpg) center center no-repeat fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    width:100%;
+    padding:0;
+    min-height:400px;
+}
+.statistics .data {background:rgba(0,0,0,0.6);color:#fff;min-height:400px;padding-top:40px;padding-bottom:40px}
+.statistics .stats
+{
+    margin-bottom:30px;
+    -webkit-transition:all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+    -o-transition:all 0.5s ease;
+    transition:all 0.5s ease;
+}
+.statistics .stats:hover {color:#91bc17;}
+.statistics i {margin-bottom:30px}
+.statistics p {font-size:60px;font-weight:bold;margin-bottom:35px}
+.statistics span {font-size:18px}
+
+
+/*  Section Our Skills */
+
+.our-skills  h2{margin-top:0;font-weight:bold}
+.our-skills .progress {height:36px}
+.our-skills .progress-bar { line-height:36px;font-size:15px;font-weight:bold;text-align:left;text-indent:10px }
+.our-skills .skills-progress {margin-bottom:20px}
+
+
+
+
+
+
+/* Group System */
+.about,.features,.testimonials,.price-table,.our-skills,.subscribe {padding-top:50px; padding-bottom:50px; }
+.features .h1 ,.testimonials .h1,.price-table .h1,.our-team .h1,.statistics .h1,.our-skills .h1 { margin-bottom:40px ; font-weight:600;}
+
+
