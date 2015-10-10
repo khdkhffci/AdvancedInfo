@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eLearningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="150" />
+    <Property Name="classIcon" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="ntext" />
+  </EntityType>
+  <EntityType Name="courses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="150" />
+    <Property Name="brief" Type="nvarchar" MaxLength="250" />
+    <Property Name="rate" Type="nvarchar" MaxLength="250" />
+    <Property Name="instructor" Type="nvarchar" MaxLength="150" />
+    <Property Name="category" Type="int" />
+    <Property Name="subCategory" Type="int" />
+    <Property Name="imageFile" Type="nvarchar" MaxLength="250" />
+    <Property Name="lectures" Type="int" />
+    <Property Name="hours" Type="int" />
+    <Property Name="skillLevel" Type="nvarchar" MaxLength="150" />
+    <Property Name="language" Type="nvarchar" MaxLength="150" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="creationDate" Type="datetime" />
+    <Property Name="percent" Type="int" />
+  </EntityType>
+  <EntityType Name="lessons">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="150" />
+    <Property Name="brief" Type="nvarchar" MaxLength="250" />
+    <Property Name="videoFile" Type="nvarchar" MaxLength="250" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="section" Type="int" />
+    <Property Name="creationDate" Type="datetime" />
+    <Property Name="lessonOrder" Type="int" />
+    <Property Name="course" Type="int" />
+  </EntityType>
+  <EntityType Name="profiles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="active" Type="bit" />
+    <Property Name="admin" Type="bit" />
+    <Property Name="photo" Type="nvarchar" MaxLength="150" />
+    <Property Name="description" Type="ntext" />
+  </EntityType>
+  <EntityType Name="sections">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="150" />
+    <Property Name="brief" Type="nvarchar" MaxLength="250" />
+    <Property Name="completed" Type="int" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="course" Type="int" />
+  </EntityType>
+  <EntityType Name="subCategories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="150" />
+    <Property Name="classIcon" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="parent" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usercourses">
+    <Key>
+      <PropertyRef Name="courseId" />
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="courseId" Type="int" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="completed" Type="int" />
+  </EntityType>
+  <EntityType Name="userlessons">
+    <Key>
+      <PropertyRef Name="lessonId" />
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="lessonId" Type="int" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="completed" Type="int" />
+    <Property Name="classIcon" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_courses_categories">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="courses" Type="Self.courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="courses">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_courses_subCategories">
+    <End Role="subCategories" Type="Self.subCategories" Multiplicity="0..1" />
+    <End Role="courses" Type="Self.courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subCategories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="courses">
+        <PropertyRef Name="subCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lessons_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="lessons" Type="Self.lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="lessons">
+        <PropertyRef Name="course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lessons_sections">
+    <End Role="sections" Type="Self.sections" Multiplicity="0..1" />
+    <End Role="lessons" Type="Self.lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sections">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="lessons">
+        <PropertyRef Name="section" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sections_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="sections" Type="Self.sections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="sections">
+        <PropertyRef Name="course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subCategories_categories">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="subCategories" Type="Self.subCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="subCategories">
+        <PropertyRef Name="parent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usercourses_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="usercourses" Type="Self.usercourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usercourses">
+        <PropertyRef Name="courseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usercourses_profiles">
+    <End Role="profiles" Type="Self.profiles" Multiplicity="1" />
+    <End Role="usercourses" Type="Self.usercourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usercourses">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userlessons_lessons">
+    <End Role="lessons" Type="Self.lessons" Multiplicity="1" />
+    <End Role="userlessons" Type="Self.userlessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lessons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userlessons">
+        <PropertyRef Name="lessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userlessons_profiles">
+    <End Role="profiles" Type="Self.profiles" Multiplicity="1" />
+    <End Role="userlessons" Type="Self.userlessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profiles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userlessons">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eLearningModelStoreContainer">
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lessons" EntityType="Self.lessons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profiles" EntityType="Self.profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sections" EntityType="Self.sections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subCategories" EntityType="Self.subCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usercourses" EntityType="Self.usercourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userlessons" EntityType="Self.userlessons" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_courses_categories" Association="Self.FK_courses_categories">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_courses_subCategories" Association="Self.FK_courses_subCategories">
+      <End Role="subCategories" EntitySet="subCategories" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lessons_courses" Association="Self.FK_lessons_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="lessons" EntitySet="lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lessons_sections" Association="Self.FK_lessons_sections">
+      <End Role="sections" EntitySet="sections" />
+      <End Role="lessons" EntitySet="lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sections_courses" Association="Self.FK_sections_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="sections" EntitySet="sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subCategories_categories" Association="Self.FK_subCategories_categories">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="subCategories" EntitySet="subCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usercourses_courses" Association="Self.FK_usercourses_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="usercourses" EntitySet="usercourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usercourses_profiles" Association="Self.FK_usercourses_profiles">
+      <End Role="profiles" EntitySet="profiles" />
+      <End Role="usercourses" EntitySet="usercourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userlessons_lessons" Association="Self.FK_userlessons_lessons">
+      <End Role="lessons" EntitySet="lessons" />
+      <End Role="userlessons" EntitySet="userlessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userlessons_profiles" Association="Self.FK_userlessons_profiles">
+      <End Role="profiles" EntitySet="profiles" />
+      <End Role="userlessons" EntitySet="userlessons" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

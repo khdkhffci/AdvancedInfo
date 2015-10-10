@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e2801a2b6c44a928bef23a1b6e711ad" Name="Diagram1">
+        <EntityTypeShape EntityType="eLearningModel.category" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.cours" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.lesson" Width="1.5" PointX="9.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.profile" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.section" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.subCategory" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.usercours" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eLearningModel.userlesson" Width="1.5" PointX="12" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="eLearningModel.FK_courses_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_subCategories_categories" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_courses_subCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_lessons_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_sections_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_usercourses_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_lessons_sections" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_userlessons_lessons" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_usercourses_profiles" ManuallyRouted="false" />
+        <AssociationConnector Association="eLearningModel.FK_userlessons_profiles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+E:\Projects\eLearn\eLearn\bin\eLearn.dll.config
+E:\Projects\eLearn\eLearn\bin\eLearn.dll
+E:\Projects\eLearn\eLearn\bin\eLearn.pdb
+E:\Projects\eLearn\eLearn\bin\EntityFramework.dll
+E:\Projects\eLearn\eLearn\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Projects\eLearn\eLearn\bin\NReco.VideoInfo.dll
+E:\Projects\eLearn\eLearn\bin\EntityFramework.xml
+E:\Projects\eLearn\eLearn\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Projects\eLearn\eLearn\bin\NReco.VideoInfo.xml
+E:\Projects\eLearn\eLearn\obj\Debug\eLearn.dll
+E:\Projects\eLearn\eLearn\obj\Debug\eLearn.pdb
+E:\Projects\eLearn\eLearn\obj\Debug\eLearn.csprojResolveAssemblyReference.cache
